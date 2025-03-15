@@ -107,3 +107,7 @@ Enter quality (default: medium): medium
 ## License
 
 This script is open-source and available for use and modification under the MIT License.
+
+## Detailed Version
+
+For advanced configuration options, troubleshooting tips, and developer documentation, please refer to the [DETAILEDREADME.md](DETAILEDREADME.md) file included with this project.
