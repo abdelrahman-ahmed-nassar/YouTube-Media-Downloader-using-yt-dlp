@@ -22,19 +22,55 @@ Ensure you have the following installed on your system:
 
 ### Installing Prerequisites
 
+**For Python:**
+
+```sh
+# Windows (using official installer)
+# Download Python from: https://www.python.org/downloads/
+# Run the installer and follow the setup instructions
+
+# Windows (using winget)
+winget install Python.Python.3
+
+# macOS (using Homebrew)
+brew install python
+
+# Linux (Ubuntu/Debian)
+sudo apt install python3
+
+# Linux (Fedora)
+sudo dnf install python3
+```
+
 **For yt-dlp:**
+
 ```sh
 pip install yt-dlp
 ```
 
 **For ffmpeg:**
-- **Windows:** Download the installer from [ffmpeg.org](https://ffmpeg.org) and add it to your PATH
+
+- **Windows:**
+  1.  Download the latest build from [gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z).
+  2.  Extract the archive to a folder, e.g., `C:\ffmpeg`.
+  3.  Open the extracted folder and go to the `bin` directory.
+  4.  You will find `ffmpeg.exe`, `ffplay.exe`, and `ffprobe.exe` inside `bin`.
+  5.  Add the full path to the `bin` folder (e.g., `C:\ffmpeg\bin`) to your system PATH environment variable:
+      - Open the Start menu and search for **Environment Variables**.
+      - Click **Edit the system environment variables**.
+      - In the System Properties window, click **Environment Variables...**
+      - Under **System variables**, find and select the **Path** variable, then click **Edit**.
+      - Click **New** and add the path to your ffmpeg `bin` folder (e.g., `C:\ffmpeg\bin`).
+      - Click **OK** to save and close all windows.
+  6.  Open a new Command Prompt and run `ffmpeg -version` to verify the installation.
 - **macOS:** `brew install ffmpeg`
 - **Linux (Ubuntu/Debian):** `sudo apt install ffmpeg`
 - **Linux (Fedora):** `sudo dnf install ffmpeg`
 
 To verify installation, open a terminal/command prompt and type:
+
 ```sh
+python --version
 yt-dlp --version
 ffmpeg -version
 ```
@@ -42,14 +78,16 @@ ffmpeg -version
 ## Installation
 
 1. Clone or download the script.
-2. Ensure `yt-dlp` and `ffmpeg` are installed and accessible from the command line.
+2. Ensure `python`, `yt-dlp` and `ffmpeg` are installed and accessible from the command line.
+
+> **Windows users:** For a step-by-step installation guide (including Python setup and environment variables), see the **Windows Installation Guide** section in [DETAILEDREADME.md](DETAILEDREADME.md).
 
 ## Usage
 
 Run the script in a terminal:
 
 ```sh
-python script.py
+python yt-dlp.py
 ```
 
 ### Navigating to the Script Directory
@@ -59,11 +97,11 @@ python script.py
    ```sh
    cd path/to/script/directory
    ```
-   - **Windows example:** `cd C:\Users\YourName\Downloads\youtube-downloader`
-   - **macOS/Linux example:** `cd ~/Downloads/youtube-downloader`
+   - **Windows example:** `cd C:\Users\YourName\Downloads\YOUTUBE-MEDIA-DOWNLOADER-USING-YT-DLP`
+   - **macOS/Linux example:** `cd ~/Downloads/YOUTUBE-MEDIA-DOWNLOADER-USING-YT-DLP`
 3. Run the script with:
    ```sh
-   python script.py
+   python yt-dlp.py
    ```
 
 Follow the prompts:

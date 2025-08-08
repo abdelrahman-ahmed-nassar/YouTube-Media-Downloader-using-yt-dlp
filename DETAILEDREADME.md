@@ -1,7 +1,9 @@
 # YouTube Media Downloader
+
 ## Comprehensive User Guide
 
 ## Table of Contents
+
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Prerequisites](#prerequisites)
@@ -25,9 +27,11 @@
 10. [License](#license)
 
 ## Overview
+
 The YouTube Media Downloader is a powerful Python script that allows you to download YouTube videos and playlists in various formats and quality levels. The tool leverages the capabilities of `yt-dlp` for reliable downloads and `ffmpeg` for high-quality media conversion, providing a seamless experience for obtaining media content from YouTube.
 
 ## Features
+
 - **Flexible Download Options**: Download individual videos or entire playlists
 - **Multiple Format Support**: Convert videos to MP3, MP4, or MKV formats
 - **Quality Control**: Choose from low, medium, or high quality settings
@@ -39,17 +43,21 @@ The YouTube Media Downloader is a powerful Python script that allows you to down
 ## Prerequisites
 
 ### System Requirements
+
 - 64-bit operating system (Windows 10/11, macOS 10.15+, or Linux)
 - Minimum 4GB RAM
 - At least 1GB free disk space (more recommended for storing downloads)
 - Active internet connection
 
 ### Required Software
+
 1. **Python 3.6+**
+
    - Required to run the script
    - Latest version recommended for optimal performance
 
 2. **yt-dlp**
+
    - Core component for downloading YouTube content
    - Regularly updated to handle YouTube's changing protocols
 
@@ -61,44 +69,96 @@ The YouTube Media Downloader is a powerful Python script that allows you to down
 
 ### Windows Installation
 
-1. **Install Python**:
-   - Download the latest Python installer from [python.org](https://www.python.org/downloads/)
-   - During installation, check "Add Python to PATH"
-   - Complete the installation process
+#### 1. Install Python
 
-2. **Install yt-dlp**:
-   - Open Command Prompt (cmd)
-   - Run: `pip install yt-dlp`
-   - Verify installation: `yt-dlp --version`
+1. Download Python from the official website: https://www.python.org/downloads/windows/
+2. Run the installer. **Important:** On the first screen, check the box that says **"Add Python to PATH"** before clicking "Install Now".
+3. Complete the installation.
 
-3. **Install ffmpeg**:
-   - Download the latest ffmpeg build from [ffmpeg.org](https://ffmpeg.org/download.html)
-   - Extract the ZIP file to a folder (e.g., `C:\ffmpeg`)
-   - Add ffmpeg to PATH:
-     - Search for "Environment Variables" in Windows search
-     - Click "Edit the system environment variables"
-     - Click "Environment Variables"
-     - Under "System variables", find "Path" and click "Edit"
-     - Click "New" and add the path to the ffmpeg bin folder (e.g., `C:\ffmpeg\bin`)
-     - Click "OK" to close all dialogs
-   - Verify installation: `ffmpeg -version`
+To verify Python is installed and added to PATH, open Command Prompt and run:
 
-4. **Get the Script**:
-   - Download the script from the repository or copy it from a shared location
-   - Save it as `youtube_downloader.py` in a directory of your choice
+```sh
+python --version
+```
+
+You should see the installed Python version.
+
+#### 2. Add Python to Environment Variables (if not already added)
+
+If you forgot to check "Add Python to PATH" during installation:
+
+1.  Open the Start menu and search for **Environment Variables**.
+2.  Click **Edit the system environment variables**.
+3.  In the System Properties window, click **Environment Variables...**
+4.  Under **System variables**, find and select the **Path** variable, then click **Edit**.
+
+5.  Click **New** and add the path to your Python installation. For most users, add these two lines (replace <YourUsername> with your actual Windows username):
+
+C:\Users\<YourUsername>\AppData\Local\Programs\Python\Python313\
+ C:\Users\<YourUsername>\AppData\Local\Programs\Python\Python313\Scripts\
+
+    > **Important:** Replace `YourName` with your actual Windows username (do not use `abdel` or `YourName` literally). For example, if your username is `JohnDoe`, the path should be:
+    >
+    >     C:\Users\JohnDoe\AppData\Local\Programs\Python\Python313\
+    >     C:\Users\JohnDoe\AppData\Local\Programs\Python\Python313\Scripts\
+
+    If you are unsure of your username, you can check it by opening Command Prompt and running:
+
+    ```sh
+    echo %USERNAME%
+    ```
+
+    Also add the `Scripts` folder as shown above.
+
+6.  Click **OK** to save and close all windows.
+7.  Restart Command Prompt and verify with `python --version` and `pip --version`.
+
+#### 3. Install yt-dlp
+
+Open Command Prompt and run:
+
+```sh
+pip install yt-dlp
+```
+
+If you get a 'pip not found' error, try:
+
+```sh
+python -m pip install yt-dlp
+```
+
+#### 4. Install ffmpeg
+
+1. Download the latest ffmpeg build from [ffmpeg.org](https://ffmpeg.org/download.html)
+2. Extract the ZIP file to a folder (e.g., `C:\ffmpeg`)
+3. Add ffmpeg to PATH:
+   - Search for "Environment Variables" in Windows search
+   - Click "Edit the system environment variables"
+   - Click "Environment Variables"
+   - Under "System variables", find "Path" and click "Edit"
+   - Click "New" and add the path to the ffmpeg bin folder (e.g., `C:\ffmpeg\bin`)
+   - Click "OK" to close all dialogs
+4. Verify installation: `ffmpeg -version`
+
+#### 5. Get the Script
+
+Download the script from the repository or copy it from a shared location. Save it as `youtube_downloader.py` in a directory of your choice.
 
 ### macOS Installation
 
 1. **Install Python**:
+
    - Download the latest Python installer from [python.org](https://www.python.org/downloads/)
    - Follow the installation instructions
    - Verify installation: `python3 --version`
 
 2. **Install Homebrew** (if not already installed):
+
    - Open Terminal
    - Run: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
 3. **Install yt-dlp and ffmpeg**:
+
    - Run: `brew install yt-dlp ffmpeg`
    - Verify installations:
      - `yt-dlp --version`
@@ -111,15 +171,18 @@ The YouTube Media Downloader is a powerful Python script that allows you to down
 ### Linux Installation
 
 1. **Install Python and pip**:
+
    - Debian/Ubuntu: `sudo apt update && sudo apt install python3 python3-pip`
    - Fedora: `sudo dnf install python3 python3-pip`
    - Arch: `sudo pacman -S python python-pip`
 
 2. **Install yt-dlp**:
+
    - Run: `pip3 install yt-dlp`
    - Verify installation: `yt-dlp --version`
 
 3. **Install ffmpeg**:
+
    - Debian/Ubuntu: `sudo apt install ffmpeg`
    - Fedora: `sudo dnf install ffmpeg`
    - Arch: `sudo pacman -S ffmpeg`
@@ -134,14 +197,17 @@ The YouTube Media Downloader is a powerful Python script that allows you to down
 ### Basic Usage
 
 1. **Open Terminal or Command Prompt**:
+
    - Navigate to the directory containing the script
    - Example: `cd /path/to/script` (Linux/macOS) or `cd C:\path\to\script` (Windows)
 
 2. **Run the Script**:
+
    - Windows: `python youtube_downloader.py`
    - macOS/Linux: `python3 youtube_downloader.py`
 
 3. **Follow the Interactive Prompts**:
+
    - Enter the YouTube URL when prompted
    - Choose between downloading a single video or an entire playlist
    - Select the desired file type (MP3 or MP4)
@@ -165,31 +231,37 @@ The script supports additional features that can be accessed through the interac
 ### Example 1: Download a Single Video as MP4
 
 1. Run the script:
+
    ```
    python youtube_downloader.py
    ```
 
 2. Enter the URL of the video:
+
    ```
    Enter YouTube URL: https://www.youtube.com/watch?v=example
    ```
 
 3. If the URL is a playlist, you'll be asked if you want to download the entire playlist:
+
    ```
    This appears to be a playlist. Do you want to download the entire playlist? (y/n): n
    ```
 
 4. Choose the file type:
+
    ```
    Enter file type (mp3/mp4): mp4
    ```
 
 5. Select the quality:
+
    ```
    Enter quality (low/medium/high) [default: medium]: high
    ```
 
 6. Decide if you want to convert the video:
+
    ```
    Do you want to convert the video to another format? (y/n): n
    ```
@@ -205,21 +277,25 @@ The script supports additional features that can be accessed through the interac
 ### Example 2: Download Audio Only (MP3)
 
 1. Run the script:
+
    ```
    python youtube_downloader.py
    ```
 
 2. Enter the URL of the video:
+
    ```
    Enter YouTube URL: https://www.youtube.com/watch?v=example
    ```
 
 3. Choose MP3 as the file type:
+
    ```
    Enter file type (mp3/mp4): mp3
    ```
 
 4. Select the quality:
+
    ```
    Enter quality (low/medium/high) [default: medium]: medium
    ```
@@ -235,26 +311,31 @@ The script supports additional features that can be accessed through the interac
 ### Example 3: Download a Playlist
 
 1. Run the script:
+
    ```
    python youtube_downloader.py
    ```
 
 2. Enter the URL of the playlist:
+
    ```
    Enter YouTube URL: https://www.youtube.com/playlist?list=example
    ```
 
 3. Choose to download the entire playlist:
+
    ```
    This appears to be a playlist. Do you want to download the entire playlist? (y/n): y
    ```
 
 4. Choose the file type:
+
    ```
    Enter file type (mp3/mp4): mp4
    ```
 
 5. Select the quality:
+
    ```
    Enter quality (low/medium/high) [default: medium]: medium
    ```
@@ -275,11 +356,13 @@ The script supports additional features that can be accessed through the interac
 1. Follow steps 1-5 from Example 1 to download an MP4 video.
 
 2. When asked about conversion, choose yes:
+
    ```
    Do you want to convert the video to another format? (y/n): y
    ```
 
 3. Select the output format:
+
    ```
    Enter the output format (mp4/mkv): mkv
    ```
@@ -295,11 +378,13 @@ The script supports additional features that can be accessed through the interac
 The script offers three quality levels that affect both audio and video downloads:
 
 ### MP3 Quality Settings
+
 - **Low**: 128 kbps bitrate
 - **Medium**: 192 kbps bitrate
 - **High**: 320 kbps bitrate
 
 ### MP4 Quality Settings
+
 - **Low**: Up to 480p resolution
 - **Medium**: Up to 720p resolution
 - **High**: Up to 1080p resolution
@@ -309,32 +394,36 @@ The script offers three quality levels that affect both audio and video download
 ### Common Issues and Solutions
 
 1. **"Command not found" Error**
+
    - **Problem**: Python, yt-dlp, or ffmpeg is not in your system PATH
    - **Solution**: Ensure all dependencies are properly installed and added to PATH
 
 2. **Download Fails with HTTP Error**
+
    - **Problem**: Network issues or YouTube restrictions
-   - **Solution**: 
+   - **Solution**:
      - Check your internet connection
      - Try again later
      - Update yt-dlp (`pip install -U yt-dlp`)
 
 3. **Conversion Fails**
+
    - **Problem**: ffmpeg issues or incompatible formats
-   - **Solution**: 
+   - **Solution**:
      - Ensure ffmpeg is properly installed
      - Check if the selected output format is supported
 
 4. **Script Crashes During Download**
+
    - **Problem**: Memory issues or corrupted download
-   - **Solution**: 
+   - **Solution**:
      - Try downloading at a lower quality
      - Free up system resources
      - Restart your computer
 
 5. **"URL not supported" Error**
    - **Problem**: The URL is invalid or not supported
-   - **Solution**: 
+   - **Solution**:
      - Check if the URL is correct
      - Ensure the video is publicly available
      - Try a different video
@@ -358,6 +447,7 @@ A: Laws vary by country. Downloading copyrighted content without permission is g
 
 **Q: How can I update the script?**
 A: Download the latest version from the repository. To update dependencies:
+
 - yt-dlp: `pip install -U yt-dlp`
 - ffmpeg: Reinstall following the installation instructions
 
@@ -365,7 +455,9 @@ A: Download the latest version from the repository. To update dependencies:
 A: All downloaded files are stored in the `output/` directory in the same folder as the script. If this directory doesn't exist, it will be created automatically.
 
 ## License
+
 This script is open-source and available under the MIT License, which allows for:
+
 - Commercial use
 - Modification
 - Distribution
