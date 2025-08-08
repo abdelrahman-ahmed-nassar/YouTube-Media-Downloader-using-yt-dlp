@@ -63,15 +63,18 @@ def download_media(video_url, file_type, quality, is_playlist):
     if not is_playlist:
         command.append("--no-playlist")
 
+    # Use yt-dlp's --print after_move:filepath to capture the output filename
+    command += ["--print", "after_move:filepath"]
     command.append(video_url)
-    subprocess.run(command)
+    result = subprocess.run(command, capture_output=True, text=True)
 
     # Conversion step for video files
     if file_type == "mp4":
-        # Find the downloaded MP4 file (assumes one file was downloaded)
-        downloaded_files = glob.glob(os.path.join(output_dir, "*.mp4"))
-        if downloaded_files:
-            input_file = downloaded_files[0]
+        # Get the actual output filename from yt-dlp's output
+        output_lines = result.stdout.strip().splitlines()
+        mp4_files = [line for line in output_lines if line.lower().endswith(".mp4")]
+        if mp4_files:
+            input_file = mp4_files[-1]  # Use the last .mp4 file printed
             convert_choice = input("Do you want to convert the file to another format? (yes/no): ").strip().lower()
             if convert_choice == "yes":
                 target_format = input("Enter target format (mp4/mkv): ").strip().lower()
