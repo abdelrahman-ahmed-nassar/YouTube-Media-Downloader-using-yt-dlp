@@ -80,7 +80,7 @@ ffmpeg -version
 1. Clone or download the script.
 2. Ensure `python`, `yt-dlp` and `ffmpeg` are installed and accessible from the command line.
 
-> **Windows users:** For a step-by-step installation guide (including Python setup and environment variables), see the **Windows Installation Guide** section in [DETAILEDREADME.md](DETAILEDREADME.md).
+> **Windows users:** For a step-by-step installation guide (including Python setup and environment variables), see the **Windows Installation Guide** section in [Detailed Installation Guide](https://github.com/abdelrahman-ahmed-nassar/YouTube-Media-Downloader-using-yt-dlp/wiki/Detailed-Installation-Guide).
 
 ## Usage
 
@@ -148,4 +148,5 @@ This script is open-source and available for use and modification under the MIT 
 
 ## Detailed Version
 
-For advanced configuration options, troubleshooting tips, and developer documentation, please refer to the [DETAILEDREADME.md](DETAILEDREADME.md) file included with this project.
+For advanced configuration options, troubleshooting tips, and developer documentation, please refer to the [Detailed Installation Guide](https://github.com/abdelrahman-ahmed-nassar/YouTube-Media-Downloader-using-yt-dlp/wiki/Detailed-Installation-Guide) file included with this project.
+
